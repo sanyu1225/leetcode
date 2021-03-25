@@ -13,17 +13,22 @@
  * }
  */
 
-const reverse = (head) => {
-    let pre = null
-}
+/**
+ * 解題思路:將相鄰的兩個鏈進行反轉
+ */
 
 /**
  * @param {ListNode} head
  * @return {ListNode}
  */
 var swapPairs = function(head) {
-    if(!head) return;
-
+    if(!head) return null;
+    let ret = new ListNode(-1,head),temp = ret;
+    while(temp.next && temp.next.next){
+        let pre = temp.next, cur = temp.next.next;
+        [pre.next,cur.next,temp.next,temp] = [cur.next,pre,cur,pre];
+    }
+    return ret.next;
 };
 // @lc code=end
 
